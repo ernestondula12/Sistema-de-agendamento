@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title></title>
+    <style>
+        span{
+            background-color: rgb(105, 105, 172);
+            color: #fff; 
+            padding: 4px; 
+            border: none;
+            border-radius: 4px;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-3 pt-3">
+        <div class="card">
+            <div class="card-header">   
+                <h3>Detlhes da consulta</h3>
+            </div>
+            <div class="card-body">
+                <h4><span>Consulta:</span> <%= appo.description %></h4>
+                <hr>
+                <h4><span>Paciente:</span> <%= appo.nome %></h4>
+                <hr>
+                <h4><span>E-mail:</span> <%= appo.email %></h4>
+                <hr>
+                <h4><span>CPF:</span> <%= appo.cpf %></h4>
+                <hr />
+            </div>
+        </div>
+        <%  if(appo.finished == false){ %>
+            <form action="/finish" method="post">
+                <input type="hidden" name="id" value="<%= appo._id  %>">
+                <button class="btn btn-success btn-block font-weight-bold mt-2">Finalizar Consulta</button>
+            </form>
+        <% } %>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Listagem de Consultas</title>
+    <style>
+
+        body{
+
+            background-color: #204a40;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+
+        h2{
+            color: #fff;
+        }
+
+        .card{
+            background-color: rgba(221, 217, 233, 0.733);
+        }
+
+         span{
+            background-color: rgb(105, 105, 172);
+            color: #fff; 
+            padding: 4px; 
+            border: none;
+            border-radius: 4px;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container mt-3 pt-3">
+    <h2 class="card-title mt-4 p-4">Consultas</h2>
+    <form class="form-inline my-2 my-lg-0 mx-lg-1" action="/searchresult" method="get">
+        <input class="form-control" type="search" name="search" id="search" placeholder="Digite o email ou cpf do cliente">
+        <button class="btn btn-outline-success my-2 my-sm-0 mx-sm-2" type="submit">Pesquisar</button>
+    </form>
+    <hr>
+    <% appos.forEach(appo => { %>
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3>Detalhe da consulta</h3>
+            </div>
+            <div class="card-body">
+                <h4><span>Consulta:</span> <%= appo.description %></h4>
+                <hr>
+                <h4><span>Paciente:</span> <%= appo.nome %></h4>
+                <hr>
+                <h4><span>E-mail:</span> <%= appo.email %></h4>
+                <hr>
+                <h4><span>CPF:</span> <%= appo.cpf %></h4>
+            </div>
+        </div>
+        <br>
+        <hr>
+   <% }) %>
+    </div>
+    
+</div>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</html>

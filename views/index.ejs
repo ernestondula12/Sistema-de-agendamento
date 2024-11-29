@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Agendamento</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href='https://cdn.jsdelivr.net/npm/@fullcalendar/core@5.10.1/main.min.css' rel='stylesheet' />
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #0c2135;
+      color: aquamarine;
+    }
+    .container-fluid {
+      height: 100%;
+    }
+    .row {
+      height: 100%;
+    }
+    .col-md-2 {
+      background-color: #1d2022;;;
+      padding-top: 20px;
+    }
+    .nav-link {
+      color: #fff;
+    }
+    .nav-link:hover {
+      background-color: #f8f9fa;
+      color: #007bff;
+    }
+    .nav-link.active {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 d-flex flex-column">
+        <nav class="nav flex-column">
+          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link" href="#">Sobre</a>
+          <a class="nav-link" href="#">Serviços</a>
+          <a class="nav-link" href="#">Contato</a>
+        </nav>
+      </div>
+      <div class="col-md-10 p-3">
+        <div id='calendar'></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@5.10.1/main.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@5.10.1/main.min.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var element = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(element, {
+        initialView: 'dayGridMonth',
+        locale: 'pt-br',
+        events: 'calendar',
+        eventClick: function(info){
+            window.location.href = '/event/'+info.event.id;
+        }
+      });
+      calendar.render();
+    });
+  </script>
+</body>
+</html>
